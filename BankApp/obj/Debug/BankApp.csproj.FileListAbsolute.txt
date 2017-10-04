@@ -5,3 +5,10 @@ C:\Users\kayen\source\repos\BankApp\BankApp\obj\Debug\BankApp.csprojResolveAssem
 C:\Users\kayen\source\repos\BankApp\BankApp\obj\Debug\BankApp.csproj.CoreCompileInputs.cache
 C:\Users\kayen\source\repos\BankApp\BankApp\obj\Debug\BankApp.exe
 C:\Users\kayen\source\repos\BankApp\BankApp\obj\Debug\BankApp.pdb
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\obj\Debug\BankApp.csprojResolveAssemblyReference.cache
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\obj\Debug\BankApp.csproj.CoreCompileInputs.cache
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\obj\Debug\BankApp.exe
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\obj\Debug\BankApp.pdb
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\BankApp.exe.config
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\BankApp.exe
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\BankApp.pdb

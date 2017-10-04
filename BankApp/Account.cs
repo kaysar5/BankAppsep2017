@@ -43,8 +43,11 @@ namespace BankApp
           //  AccountNumber = lastAccountNumber;
 
             AccountNumber = ++lastAccountNumber;
+            CreateDate= DateTime.Now;
+         }
+
 #endregion
-        }
+        
 
 
         #region Methods
