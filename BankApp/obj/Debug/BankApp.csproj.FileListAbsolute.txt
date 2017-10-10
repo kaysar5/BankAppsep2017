@@ -12,3 +12,7 @@ C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\obj\Debug\BankApp.pdb
 C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\BankApp.exe.config
 C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\BankApp.exe
 C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\BankApp.pdb
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\EntityFramework.dll
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\EntityFramework.xml
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\EntityFramework.SqlServer.xml

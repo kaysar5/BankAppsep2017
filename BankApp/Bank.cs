@@ -8,7 +8,7 @@ namespace BankApp
 {
     public static class Bank
     {
-        private static List<Account> accounts= new List<Account>();
+        private static BankModel db = new BankModel();
 
 
         /// <summary>
@@ -32,14 +32,15 @@ namespace BankApp
             {
                 account.Deposit(initialDeposit);
             }
-            accounts.Add(account);
+            db.Accounts.Add(account);
+            db.SaveChanges();
             return account;
 
         }
-        public static List<Account> GetAllaccounts()
+        public static List<Account> GetAllaccounts(string emailAddress)
   
           {
-           return accounts;
+            return db.Accounts.Where(a=> a.EmailAddress== emailAddress). ToList();
           }
     }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,12 +27,16 @@ namespace BankApp
         /// <summary>
         /// This holds the acoount number
         /// </summary>
-        public int AccountNumber { get;  }
+        [Key]
+        public int AccountNumber { get; private set; }
         /// <summary>
         /// This is the email address of the user
         /// </summary>
+        [Required]
+        [StringLength(50, ErrorMessage = "Email address cannot be more than 50 characters in length")]
         public string EmailAddress { get; set; }
         public decimal Balance { get; private set; }
+        [Required]       
         public TypeOfAccount AccountType { get; set; }
         public DateTime CreateDate { get; set; }
         #endregion
