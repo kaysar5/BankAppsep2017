@@ -16,3 +16,6 @@ C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\EntityFramework
 C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\EntityFramework.xml
 C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\obj\Debug\BankApp.Migrations.InitialCreate.resources
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\obj\Debug\BankApp.csproj.GenerateResource.Cache
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\obj\Debug\BankApp.Migrations.Transactions.resources

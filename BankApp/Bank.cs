@@ -42,8 +42,56 @@ namespace BankApp
           {
             return db.Accounts.Where(a=> a.EmailAddress== emailAddress). ToList();
           }
+
+        public static void Deposit(int accountNumber, decimal amount)
+        {
+            var account = db.Accounts.Where(a => a.AccountNumber == accountNumber).FirstOrDefault();
+            if (account == null)
+                return;
+
+            account.Deposit(amount);
+            var Transaction = new Transaction
+            {
+                TransactionDate = DateTime.Now,
+                TypeOfTransaction = TransactionType.Credit,
+                Description = "Branch deposit",
+                Amount = amount,
+                AccountNumber = account.AccountNumber
+
+            };
+            db.Transactions.Add(Transaction);
+            db.SaveChanges();
+        }
+
+            public static void Withdraw(int accountNumber, decimal amount)
+            {
+                var account = db.Accounts.Where(a => a.AccountNumber == accountNumber).FirstOrDefault();
+                if (account == null)
+                    return;
+
+                account.Withdraw(amount);
+                var Transaction = new Transaction
+                {
+                    TransactionDate = DateTime.Now,
+                    TypeOfTransaction = TransactionType.Debit,
+                    Description = "Branch withdraw",
+                    Amount = amount,
+                    AccountNumber = account.AccountNumber
+
+                };
+                db.Transactions.Add(Transaction);
+                db.SaveChanges();
+            }
+        public static List<Transaction> GetAllTransactions(int accountNumber)
+
+        {
+            return db.Transactions.Where(t => t.AccountNumber == accountNumber).OrderByDescending(t=>t.TransactionDate).ToList();
+        }
+
+
+
     }
 
- }
+}
 
 
