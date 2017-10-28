@@ -42,12 +42,20 @@ namespace BankApp
           {
             return db.Accounts.Where(a=> a.EmailAddress== emailAddress). ToList();
           }
+        /// <summary>
+        /// Deposit money into account
+        /// </summary>
+        /// <param name="accountNumber"></param>
+        /// <param name="amount"></param>
+        /// <exception cref="ArgumentOutOfRangeException">ArgumentoutofRangeException </exception>
 
         public static void Deposit(int accountNumber, decimal amount)
         {
-            var account = db.Accounts.Where(a => a.AccountNumber == accountNumber).FirstOrDefault();
-            if (account == null)
-                return;
+            try {
+
+            var account = GetAccountsByAccountNumber(accountNumber);
+      
+
 
             account.Deposit(amount);
             var Transaction = new Transaction
@@ -61,27 +69,42 @@ namespace BankApp
             };
             db.Transactions.Add(Transaction);
             db.SaveChanges();
+            }
+            catch
+            {
+                // log
+                throw;
+            }
+        }
+                        
+
+
+        public static void Withdraw(int accountNumber, decimal amount)
+        {
+           var account = GetAccountsByAccountNumber(accountNumber);
+
+            account.Withdraw(amount);
+            var Transaction = new Transaction
+            {
+                TransactionDate = DateTime.Now,
+                TypeOfTransaction = TransactionType.Debit,
+                Description = "Branch withdraw",
+                Amount = amount,
+                AccountNumber = account.AccountNumber
+
+            };
+            db.Transactions.Add(Transaction);
+            db.SaveChanges();
         }
 
-            public static void Withdraw(int accountNumber, decimal amount)
-            {
-                var account = db.Accounts.Where(a => a.AccountNumber == accountNumber).FirstOrDefault();
-                if (account == null)
-                    return;
+        private static Account GetAccountsByAccountNumber(int accountNumber)
+        {
+            var account = db.Accounts.Where(a => a.AccountNumber == accountNumber).FirstOrDefault();
+            if (account == null)
+                throw new ArgumentOutOfRangeException("Invalid account number.");
+            return account;
+        }
 
-                account.Withdraw(amount);
-                var Transaction = new Transaction
-                {
-                    TransactionDate = DateTime.Now,
-                    TypeOfTransaction = TransactionType.Debit,
-                    Description = "Branch withdraw",
-                    Amount = amount,
-                    AccountNumber = account.AccountNumber
-
-                };
-                db.Transactions.Add(Transaction);
-                db.SaveChanges();
-            }
         public static List<Transaction> GetAllTransactions(int accountNumber)
 
         {
