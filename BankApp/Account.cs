@@ -21,7 +21,7 @@ namespace BankApp
    public class Account
 
     {
-        private static int lastAccountNumber = 0;
+       
 
         #region Properties
         /// <summary>
@@ -38,7 +38,7 @@ namespace BankApp
         public decimal Balance { get; private set; }
         [Required]       
         public TypeOfAccount AccountType { get; set; }
-        public DateTime CreateDate { get; set; }
+        public DateTime CreatedDate { get; private set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
 
         #endregion
@@ -49,8 +49,8 @@ namespace BankApp
             //lastAccountNumber += 1;
           //  AccountNumber = lastAccountNumber;
 
-            AccountNumber = ++lastAccountNumber;
-            CreateDate= DateTime.Now;
+            
+            CreatedDate= DateTime.Now;
          }
 
 #endregion

@@ -7,10 +7,7 @@ C:\Users\kayen\source\repos\BankApp\BankApp\obj\Debug\BankApp.exe
 C:\Users\kayen\source\repos\BankApp\BankApp\obj\Debug\BankApp.pdb
 C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\obj\Debug\BankApp.csprojResolveAssemblyReference.cache
 C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\obj\Debug\BankApp.csproj.CoreCompileInputs.cache
-C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\obj\Debug\BankApp.exe
 C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\obj\Debug\BankApp.pdb
-C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\BankApp.exe.config
-C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\BankApp.exe
 C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\BankApp.pdb
 C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\EntityFramework.dll
 C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\EntityFramework.SqlServer.dll
@@ -19,3 +16,6 @@ C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\EntityFramework
 C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\obj\Debug\BankApp.Migrations.InitialCreate.resources
 C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\obj\Debug\BankApp.csproj.GenerateResource.Cache
 C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\obj\Debug\BankApp.Migrations.Transactions.resources
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\BankApp.dll.config
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\bin\Debug\BankApp.dll
+C:\Users\kayen\Documents\GitHub\BankAppsep2017\BankApp\obj\Debug\BankApp.dll

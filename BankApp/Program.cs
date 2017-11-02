@@ -44,7 +44,7 @@ namespace BankApp
                     Console.Write("Amount to deposit:");
                     var amount = Convert.ToDecimal(Console.ReadLine());
                     var account = Bank.CreateAccount(emailAddress,accountType,amount);
-                    Console.WriteLine($"AN:{account.AccountNumber}, AT:{account.AccountType}, Balance:{account.Balance:C},Created Date:{account.CreateDate}");
+                    Console.WriteLine($"AN:{account.AccountNumber}, AT:{account.AccountType}, Balance:{account.Balance:C},Created Date:{account.CreatedDate}");
                         break;
                 case "2":
                         PrintAllAccounts();
@@ -81,10 +81,10 @@ namespace BankApp
 
                         
                         Console.Write("Account number:");
-                         var accountNumber = Convert.ToInt32(Console.ReadLine());
+                         var aNumber = Convert.ToInt32(Console.ReadLine());
                         Console.Write("Amount to withdra");
                         amount = Convert.ToDecimal(Console.ReadLine());
-                        Bank.Withdraw(accountNumber, amount);
+                        Bank.Withdraw(aNumber, amount);
                         Console.WriteLine("Withraw was Successful!");
                         }
                         catch (ArgumentOutOfRangeException ax)
@@ -121,7 +121,7 @@ namespace BankApp
             var accounts = Bank.GetAllaccounts(emailAddress);
             foreach (var item in accounts)
             {
-                Console.WriteLine($"AN:{item.AccountNumber}, AT:{item.AccountType}, Balance:{item.Balance:C},Created Date:{item.CreateDate}");
+                Console.WriteLine($"AN:{item.AccountNumber}, AT:{item.AccountType}, Balance:{item.Balance:C},Created Date:{item.CreatedDate}");
             }
 
             return;
