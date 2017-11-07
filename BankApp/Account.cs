@@ -28,17 +28,17 @@ namespace BankApp
         /// This holds the acoount number
         /// </summary>
         [Key]
-        public int AccountNumber { get; private set; }
+        public int AccountNumber { get;  set; }
         /// <summary>
         /// This is the email address of the user
         /// </summary>
         [Required]
         [StringLength(50, ErrorMessage = "Email address cannot be more than 50 characters in length")]
         public string EmailAddress { get; set; }
-        public decimal Balance { get; private set; }
+        public decimal Balance { get;  set; }
         [Required]       
         public TypeOfAccount AccountType { get; set; }
-        public DateTime CreatedDate { get; private set; }
+        public DateTime CreatedDate { get;  set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
 
         #endregion
