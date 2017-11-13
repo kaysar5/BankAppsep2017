@@ -22,6 +22,7 @@ namespace BankUI.Controllers
         }
 
         // GET: Accounts/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +38,7 @@ namespace BankUI.Controllers
         }
 
         // GET: Accounts/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -47,30 +49,37 @@ namespace BankUI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "AccountNumber,EmailAddress,Balance,AccountType,CreatedDate")] Account account)
-        {
-            if (ModelState.IsValid)
-            {
+        {            
+                account.EmailAddress = HttpContext.User.Identity.Name;
                 Bank.CreateAccount(account.EmailAddress, account.AccountType);
-                return RedirectToAction("Index");
-            }
-
-            return View(account);
+                return RedirectToAction("Index");            
         }
 
         // GET: Accounts/Edit/5
+        [Authorize
+            ]
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            try
+            { 
             Account account = Bank.GetAccountsByAccountNumber(id.Value);
             if (account == null)
             {
                 return HttpNotFound();
             }
             return View(account);
+            }
+            catch(InvalidAccountException ax)
+            {
+                Session["ErrorMessage"] = ax.Message;
+                throw;
+            }
         }
 
         // POST: Accounts/Edit/5
@@ -78,15 +87,13 @@ namespace BankUI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit([Bind(Include = "AccountNumber,EmailAddress,Balance,AccountType,CreateDate")] Account account)
-        {
-            if (ModelState.IsValid)
-            {
+        {           
                 Bank.EditAccount(account);
-                return RedirectToAction("Index");
-            }
-            return View(account);
+                return RedirectToAction("Index");            
         }
+        [Authorize]
         
         public ActionResult Deposit(int?id)
         {
@@ -100,6 +107,7 @@ namespace BankUI.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Deposit(FormCollection Controls)
         {
             var accountNumber = Convert.ToInt32(Controls["AccountNumber"]);
@@ -107,6 +115,7 @@ namespace BankUI.Controllers
             Bank.Deposit(accountNumber, amount);
             return RedirectToAction("Index");
         }
+        [Authorize]
 
         public ActionResult Withdraw(int? id)
         {
@@ -120,12 +129,23 @@ namespace BankUI.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Withdraw(FormCollection Controls)
         {
             var accountNumber = Convert.ToInt32(Controls["AccountNumber"]);
             var amount = Convert.ToDecimal(Controls["Amount"]);
             Bank.Withdraw(accountNumber, amount);
             return RedirectToAction("Index");
+        }
+        [Authorize]
+        public ActionResult Transations(int?id)
+        {
+            if(id==null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var transactions = Bank.GetAllTransactions(id.Value);
+            return View(transactions);
         }
 
 
